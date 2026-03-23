@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>After Aisle — Wedding Decor You'll Actually Own</title>
+  <meta name="description" content="The vetted marketplace where brides buy, style, and resell their wedding decor. Stop overpaying for rentals. Join the waitlist for early access." />
+  <meta property="og:title" content="After Aisle — Wedding Decor You'll Actually Own" />
+  <meta property="og:description" content="Stop renting decor for 24 hours. Buy it, use it, resell it. Join the waitlist." />
+  <meta property="og:type" content="website" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #FAF7F2;
+      --blush:   #E8D5C4;
+      --rose:    #C4867A;
+      --deep:    #3D2B25;
+      --muted:   #8A7168;
+      --white:   #FFFFFF;
+      --border:  #E2D8D0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: var(--cream);
+      color: var(--deep);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 28px 24px 0;
+    }
+    .logo {
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--deep);
+      font-style: italic;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 64px 24px 48px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 20px;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--deep);
+      margin-bottom: 20px;
+    }
+    h1 em { font-style: italic; color: var(--rose); }
+
+    .subhead {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 36px;
+    }
+
+    /* ── FORM ── */
+    .form-wrap {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px 28px;
+      max-width: 440px;
+      margin: 0 auto 16px;
+      box-shadow: 0 4px 24px rgba(61,43,37,0.06);
+    }
+    .form-wrap p {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .form-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: inherit;
+      background: var(--cream);
+      color: var(--deep);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    input:focus { border-color: var(--rose); }
+    input::placeholder { color: var(--muted); }
+
+    .btn {
+      width: 100%;
+      padding: 16px;
+      background: var(--deep);
+      color: var(--white);
+      border: none;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn:hover { background: var(--rose); }
+    .btn:active { transform: scale(0.99); }
+
+    .privacy {
+      font-size: 0.75rem;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 12px;
+    }
+
+    .social-proof {
+      font-size: 0.8rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .social-proof strong { color: var(--rose); }
+
+    /* ── SUCCESS STATE ── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 28px;
+    }
+    .success-msg .check {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+    .success-msg h3 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .success-msg p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--blush);
+      margin: 56px auto;
+    }
+
+    /* ── VALUE PROPS ── */
+    .props {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px;
+      text-align: center;
+    }
+    .prop-icon {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+    }
+    .prop h3 {
+      font-size: 0.95rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+      color: var(--deep);
+    }
+    .prop p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how {
+      max-width: 560px;
+      margin: 56px auto 0;
+      padding: 0 24px;
+      text-align: center;
+    }
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 28px;
+    }
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      text-align: left;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--rose);
+      min-width: 24px;
+      padding-top: 3px;
+    }
+    .step-text h4 {
+      font-size: 0.95rem;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+    .step-text p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* ── QUOTE ── */
+    .quote-wrap {
+      max-width: 520px;
+      margin: 56px auto 0;
+      padding: 0 24px;
+      text-align: center;
+    }
+    blockquote {
+      font-size: 1.05rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--deep);
+      border-left: 2px solid var(--blush);
+      padding-left: 20px;
+      text-align: left;
+      margin-bottom: 16px;
+    }
+    cite {
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      font-style: normal;
+    }
+
+    /* ── FAQ ── */
+    .faq {
+      max-width: 560px;
+      margin: 56px auto 0;
+      padding: 0 24px;
+    }
+    .faq .section-label { text-align: center; }
+    details {
+      border-bottom: 1px solid var(--border);
+      padding: 20px 0;
+    }
+    summary {
+      font-size: 0.95rem;
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--deep);
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: '+';
+      font-size: 1.2rem;
+      color: var(--rose);
+      transition: transform 0.2s;
+    }
+    details[open] summary::after { content: '−'; }
+    details p {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+      padding-top: 12px;
+    }
+
+    /* ── FOOTER CTA ── */
+    .footer-cta {
+      text-align: center;
+      padding: 64px 24px 80px;
+      max-width: 480px;
+      margin: 56px auto 0;
+    }
+    .footer-cta h2 {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .footer-cta p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .footer-cta .btn {
+      max-width: 320px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="logo">After Aisle</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="eyebrow">Now taking waitlist signups</p>
+    <h1>Wedding Decor You'll<br /><em>Actually Own</em></h1>
+    <p class="subhead">
+      After Aisle is the vetted marketplace where brides buy, style, and resell their decor —
+      so your dream wedding doesn't cost thousands for a single day.
+    </p>
+
+    <!-- FORM -->
+    <div class="form-wrap" id="form-wrap">
+      <p>Get Early Access</p>
+      <form class="form-row" id="waitlist-form" onsubmit="handleSubmit(event)">
+        <input type="text" name="first_name" placeholder="First name" required />
+        <input type="email" name="email" placeholder="Email address" required />
+        <button type="submit" class="btn">Join the Waitlist</button>
+      </form>
+      <p class="privacy">No spam. Unsubscribe anytime.</p>
+
+      <!-- Success state -->
+      <div class="success-msg" id="success-msg">
+        <div class="check">✦</div>
+        <h3>You're on the list.</h3>
+        <p>We'll reach out with early access and founder pricing before we open to the public.</p>
+      </div>
+    </div>
+
+    <p class="social-proof">Join <strong>23,000+</strong> brides who've seen After Aisle</p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- VALUE PROPS -->
+  <section class="props" aria-label="Why After Aisle">
+    <div class="prop">
+      <div class="prop-icon">◇</div>
+      <h3>Stop Overpaying for Rentals</h3>
+      <p>The average bride spends $2–5K renting decor for 24 hours. Keep what you love, sell the rest.</p>
+    </div>
+    <div class="prop">
+      <div class="prop-icon">◇</div>
+      <h3>Skip the Chaotic Hunt</h3>
+      <p>Every item is vetted, aesthetic-matched, and photographed. No more Facebook Marketplace roulette.</p>
+    </div>
+    <div class="prop">
+      <div class="prop-icon">◇</div>
+      <h3>Recoup Your Investment</h3>
+      <p>Resell after your wedding and recover a meaningful portion of what you spent. Your decor funds the next bride.</p>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- HOW IT WORKS -->
+  <section class="how">
+    <p class="section-label">How It Works</p>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <div class="step-text">
+          <h4>Browse vetted decor</h4>
+          <p>Filter by aesthetic — boho, minimalist, garden, maximalist. Every listing is quality-checked before it goes live.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <div class="step-text">
+          <h4>Buy what fits your vision</h4>
+          <p>Own your decor. Style it exactly how you want. No rental return windows, no damage fees.</p>
+        </div>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <div class="step-text">
+          <h4>Resell after your wedding</h4>
+          <p>List your items on After Aisle and recoup your investment — while your decor goes on to make another wedding beautiful.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- QUOTE -->
+  <section class="quote-wrap">
+    <blockquote>
+      "I spent $4,200 renting arch frames and candle holders I used for six hours.
+      After Aisle would have changed everything about how I planned my wedding budget."
+    </blockquote>
+    <cite>— The exact bride we're building this for</cite>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <p class="section-label">Questions</p>
+
+    <details>
+      <summary>Is the decor actually in good condition?</summary>
+      <p>Yes. Every seller is vetted before their items go live. We review photos, condition descriptions, and usage history. No mystery purchases — what you see is what you get.</p>
+    </details>
+
+    <details>
+      <summary>What styles and items will be available?</summary>
+      <p>We're curating across boho, minimalist, garden, and maximalist aesthetics. Arch frames, candle holders, table decor, signage, and more. Waitlist members help shape our opening inventory.</p>
+    </details>
+
+    <details>
+      <summary>When does After Aisle launch?</summary>
+      <p>We're building now. Waitlist members get first access and founder pricing before we open to the public. Signing up today guarantees your spot at the front of the line.</p>
+    </details>
+
+    <details>
+      <summary>Can I list my own wedding decor to sell?</summary>
+      <p>Absolutely — that's the supply side of what makes this work. If you have decor in storage from a recent wedding, we want to hear from you. Note that in the form and we'll be in touch first.</p>
+    </details>
+  </section>
+
+  <!-- FOOTER CTA -->
+  <section class="footer-cta">
+    <h2>Your dream wedding.<br />Without the rental bill.</h2>
+    <p>Join the waitlist for early access and founder pricing.</p>
+    <a href="#form-wrap" class="btn" onclick="document.querySelector('#waitlist-form input').focus()">
+      Join the Waitlist
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 After Aisle &nbsp;·&nbsp; afteraisle.com</p>
+  </footer>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('waitlist-form');
+      const success = document.getElementById('success-msg');
+
+      // ── INTEGRATION POINT ──
+      // Replace the block below with your email provider:
+      //
+      // Mailchimp:  POST to your Mailchimp API endpoint
+      // ConvertKit: POST to https://api.convertkit.com/v3/forms/{FORM_ID}/subscribe
+      // Airtable:   POST to https://api.airtable.com/v0/{BASE_ID}/{TABLE}
+      //
+      // Example fetch:
+      // const data = Object.fromEntries(new FormData(form));
+      // fetch('/api/waitlist', { method: 'POST', body: JSON.stringify(data), ... })
+      //   .then(() => showSuccess());
+
+      // Temporary: show success immediately (swap for real integration)
+      showSuccess();
+    }
+
+    function showSuccess() {
+      const form = document.getElementById('waitlist-form');
+      const success = document.getElementById('success-msg');
+      form.style.display = 'none';
+      success.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
