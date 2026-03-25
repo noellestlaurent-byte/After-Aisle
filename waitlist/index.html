@@ -371,7 +371,8 @@
     <!-- FORM -->
     <div class="form-wrap" id="form-wrap">
       <p>Get Early Access</p>
-      <form class="form-row" id="waitlist-form" onsubmit="handleSubmit(event)">
+      <form class="form-row" id="waitlist-form" name="waitlist" method="POST" data-netlify="true" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="form-name" value="waitlist" />
         <input type="text" name="first_name" placeholder="First name" required />
         <input type="email" name="email" placeholder="Email address" required />
         <button type="submit" class="btn">Join the Waitlist</button>
