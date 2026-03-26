@@ -504,14 +504,24 @@
       e.preventDefault();
       const form = document.getElementById('waitlist-form');
       const data = new FormData(form);
+      const email = data.get('email');
 
-      fetch('/', {
+      const netlifySubmit = fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(data).toString()
-      })
-      .then(() => showSuccess())
-      .catch(() => showSuccess());
+      });
+
+      const beehiivSubmit = fetch('https://api.beehiiv.com/v2/publications/428fa035-6e39-4e4b-b51f-5aa69425dbf8/subscriptions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer WXJyoo6ufB16YX22camkRvMC6T3zjDRUGiEz8RKHwojtRsfsA7ppncb1fm9eUlTu'
+        },
+        body: JSON.stringify({ email: email, reactivate_existing: true, send_welcome_email: false })
+      });
+
+      Promise.allSettled([netlifySubmit, beehiivSubmit]).then(() => showSuccess());
     }
 
     function showSuccess() {
