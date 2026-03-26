@@ -512,13 +512,10 @@
         body: new URLSearchParams(data).toString()
       });
 
-      const beehiivSubmit = fetch('https://api.beehiiv.com/v2/publications/428fa035-6e39-4e4b-b51f-5aa69425dbf8/subscriptions', {
+      const beehiivSubmit = fetch('/.netlify/functions/subscribe', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer WXJyoo6ufB16YX22camkRvMC6T3zjDRUGiEz8RKHwojtRsfsA7ppncb1fm9eUlTu'
-        },
-        body: JSON.stringify({ email: email, reactivate_existing: true, send_welcome_email: false })
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
       });
 
       Promise.allSettled([netlifySubmit, beehiivSubmit]).then(() => showSuccess());
