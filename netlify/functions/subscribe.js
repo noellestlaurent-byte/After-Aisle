@@ -6,7 +6,7 @@ exports.handler = async function (event) {
   const { email } = JSON.parse(event.body);
 
   const response = await fetch(
-    'https://api.beehiiv.com/v2/publications/428fa035-6e39-4e4b-b51f-5aa69425dbf8/subscriptions',
+    'https://api.beehiiv.com/v2/publications/pub_428fa035-6e39-4e4b-b51f-5aa69425dbf8/subscriptions',
     {
       method: 'POST',
       headers: {
