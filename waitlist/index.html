@@ -503,22 +503,15 @@
     function handleSubmit(e) {
       e.preventDefault();
       const form = document.getElementById('waitlist-form');
-      const success = document.getElementById('success-msg');
+      const data = new FormData(form);
 
-      // ── INTEGRATION POINT ──
-      // Replace the block below with your email provider:
-      //
-      // Mailchimp:  POST to your Mailchimp API endpoint
-      // ConvertKit: POST to https://api.convertkit.com/v3/forms/{FORM_ID}/subscribe
-      // Airtable:   POST to https://api.airtable.com/v0/{BASE_ID}/{TABLE}
-      //
-      // Example fetch:
-      // const data = Object.fromEntries(new FormData(form));
-      // fetch('/api/waitlist', { method: 'POST', body: JSON.stringify(data), ... })
-      //   .then(() => showSuccess());
-
-      // Temporary: show success immediately (swap for real integration)
-      showSuccess();
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(data).toString()
+      })
+      .then(() => showSuccess())
+      .catch(() => showSuccess());
     }
 
     function showSuccess() {
