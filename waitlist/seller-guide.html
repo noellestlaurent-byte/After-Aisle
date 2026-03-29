@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seller Guide — After Aisle</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:   #F5F5EF;
+      --blush:   #B4AD8E;
+      --rose:    #A2847B;
+      --deep:    #3D2B25;
+      --muted:   #8A7168;
+      --white:   #FFFFFF;
+      --border:  #E2D8D0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      background: var(--cream);
+      color: var(--deep);
+      min-height: 100vh;
+    }
+
+    /* ── NAV ── */
+    nav {
+      display: flex;
+      justify-content: center;
+      padding: 28px 24px 0;
+    }
+    .logo img {
+      height: 160px;
+      width: auto;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 48px 24px 40px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--deep);
+      margin-bottom: 16px;
+    }
+    .subhead {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--blush);
+      margin: 40px auto;
+    }
+
+    /* ── CONTENT ── */
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    .section {
+      margin-bottom: 48px;
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 16px;
+      font-weight: 600;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--deep);
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--deep);
+      margin-bottom: 8px;
+      margin-top: 24px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    li strong {
+      color: var(--deep);
+    }
+
+    /* ── CALLOUT BOXES ── */
+    .callout {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--blush);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 20px 0;
+    }
+    .callout p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+    .callout.warning {
+      border-left-color: var(--rose);
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 8px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step:last-child { border-bottom: none; }
+    .step-num {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--rose);
+      font-weight: 600;
+      min-width: 24px;
+      padding-top: 2px;
+    }
+    .step-text h4 {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--deep);
+    }
+    .step-text p {
+      margin-bottom: 0;
+      font-size: 0.88rem;
+    }
+
+    /* ── POLICY CARD ── */
+    .policy-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-top: 16px;
+      box-shadow: 0 4px 24px rgba(61,43,37,0.06);
+    }
+    .policy-card h3 {
+      margin-top: 0;
+    }
+
+    /* ── CHECKLIST ── */
+    .checklist {
+      list-style: none;
+      padding-left: 0;
+    }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .checklist li:last-child { border-bottom: none; }
+    .checklist li::before {
+      content: '◇';
+      color: var(--blush);
+      font-size: 0.75rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo">
+      <img src="AA Logo Final - 9.svg" alt="After Aisle" />
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="eyebrow">Founding Seller Resource</p>
+    <h1>Seller Onboarding &amp; Shipping Guide</h1>
+    <p class="subhead">
+      Everything you need to know to list, ship, and sell on After Aisle —
+      so your decor finds its next home beautifully.
+    </p>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTENT -->
+  <div class="content">
+
+    <!-- SECTION 1: STANDARDS -->
+    <div class="section">
+      <p class="section-label">01 — Listing Standards</p>
+      <h2>What We Accept</h2>
+      <p>After Aisle is a vetted, editorial marketplace. Every listing is reviewed by our team before it goes live. We only accept items that meet our condition and aesthetic standards.</p>
+
+      <h3>Accepted Item Categories</h3>
+      <ul>
+        <li>Arch frames, ceremony structures, and backdrops</li>
+        <li>Candle holders, candlesticks, and lanterns</li>
+        <li>Table linens, runners, and overlays</li>
+        <li>Centerpiece vessels, urns, and floral stands</li>
+        <li>Custom signage frames and easels</li>
+        <li>Premium tabletop (chargers, glassware, flatware)</li>
+        <li>Bridal accessories and editorial props</li>
+      </ul>
+
+      <h3>Condition Requirements</h3>
+      <p>All items must be listed under one of the following condition tiers:</p>
+
+      <div class="policy-card">
+        <h3>Pristine</h3>
+        <p>Used once or never used. No visible wear, scratches, chips, or staining. Appears as new.</p>
+        <h3>Excellent</h3>
+        <p>Used 1–2 times. Minor surface wear only — not visible in standard photos. Fully functional and display-ready.</p>
+        <h3>Good</h3>
+        <p>Used multiple times. Light wear consistent with use (small scuffs, minor patina). Any imperfections must be clearly photographed and disclosed in the listing description.</p>
+      </div>
+
+      <div class="callout warning">
+        <p><strong>Items will be rejected</strong> if they arrive with undisclosed damage, significant staining, broken parts, or do not match the condition listed. Repeated misrepresentation will result in removal from the platform.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2: PHOTOGRAPHY -->
+    <div class="section">
+      <p class="section-label">02 — Listing Photography</p>
+      <h2>Photo Requirements</h2>
+      <p>Great photography is the single most important factor in selling your items. After Aisle is an editorial marketplace — your photos should reflect that.</p>
+
+      <h3>Required Shots (minimum 5 photos per listing)</h3>
+      <ul class="checklist">
+        <li><strong>Full item shot</strong> — entire piece visible, neutral or lifestyle background</li>
+        <li><strong>Detail shot</strong> — close-up of texture, material, or craftsmanship</li>
+        <li><strong>Scale shot</strong> — item next to a common object or in a styled setting so buyers understand size</li>
+        <li><strong>Any wear or imperfection</strong> — required if condition is Good; strongly recommended for Excellent</li>
+        <li><strong>Flat lay or styled shot</strong> — item as it would appear at a real wedding</li>
+      </ul>
+
+      <h3>Photography Tips</h3>
+      <ul>
+        <li>Shoot in <strong>natural light</strong> — avoid harsh flash or yellow indoor lighting</li>
+        <li>Use a <strong>clean, neutral background</strong> (white wall, cream linen, marble surface)</li>
+        <li>Shoot on a <strong>high-resolution phone camera</strong> — portrait mode adds polish</li>
+        <li>Do not use heavy filters — buyers need accurate color representation</li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 3: PACKAGING -->
+    <div class="section">
+      <p class="section-label">03 — Packaging Standards</p>
+      <h2>How to Pack Your Items</h2>
+      <p>Sellers are responsible for all packaging. Items that arrive damaged due to poor packaging are the seller's liability. Follow these standards to protect yourself and your buyer.</p>
+
+      <h3>General Rules</h3>
+      <ul>
+        <li>All items must be <strong>wrapped in bubble wrap</strong> or equivalent cushioning material</li>
+        <li>Use a box with <strong>at least 2 inches of padding on all sides</strong></li>
+        <li>Fragile items (glassware, candle holders, ceramic vessels) must be <strong>double-boxed</strong></li>
+        <li>Multiple items in one order must be <strong>individually wrapped</strong> before being placed together</li>
+        <li>Seal all boxes with <strong>packing tape on all seams</strong> — not just the top flap</li>
+      </ul>
+
+      <h3>By Item Type</h3>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">◇</span>
+          <div class="step-text">
+            <h4>Arch Frames &amp; Large Structures</h4>
+            <p>Disassemble completely. Wrap each component individually in bubble wrap. Use a heavy-duty double-walled box or PVC pipe carriers. Include all hardware and assembly instructions if available.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">◇</span>
+          <div class="step-text">
+            <h4>Candle Holders &amp; Glass Items</h4>
+            <p>Wrap each piece in a minimum of 3 layers of bubble wrap. Double-box with packing peanuts or foam fill between boxes. Mark the outer box "FRAGILE" on all sides.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">◇</span>
+          <div class="step-text">
+            <h4>Linens &amp; Fabric Items</h4>
+            <p>Fold neatly and place in a sealed plastic bag before boxing. This protects against moisture during transit. No need for bubble wrap — focus on keeping clean and dry.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">◇</span>
+          <div class="step-text">
+            <h4>Tabletop (Chargers, Glassware, Flatware)</h4>
+            <p>Wrap each piece individually. Stack plates with cardboard dividers. Use cell kits (divided boxes) for glassware when possible. Double-box.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">◇</span>
+          <div class="step-text">
+            <h4>Signage Frames &amp; Easels</h4>
+            <p>Disassemble if possible. Wrap corners and edges with extra bubble wrap — these are the most vulnerable points. Use a flat box sized to the frame; avoid rolling or forcing into undersized packaging.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p><strong>Pro tip:</strong> Take a photo of your packed item before sealing the box. This protects you in any damage dispute — proof that the item was properly packaged at the time of shipment.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4: SHIPPING -->
+    <div class="section">
+      <p class="section-label">04 — Shipping Requirements</p>
+      <h2>Shipping Your Items</h2>
+
+      <h3>Carrier Recommendations</h3>
+      <ul>
+        <li><strong>UPS or FedEx</strong> — strongly recommended for fragile and large items; better handling than USPS for delicate decor</li>
+        <li><strong>USPS Priority Mail</strong> — acceptable for small, non-fragile items (linens, accessories)</li>
+        <li><strong>Freight</strong> — required for very large structures (full arch frames over 6ft, large furniture-style pieces)</li>
+      </ul>
+
+      <h3>Shipping Timeline</h3>
+      <ul>
+        <li>All orders must be <strong>shipped within 5 business days</strong> of a confirmed sale</li>
+        <li>Tracking information must be uploaded to the platform <strong>within 24 hours of shipping</strong></li>
+        <li>Orders not shipped within 5 days may be cancelled and refunded to the buyer</li>
+      </ul>
+
+      <h3>Shipping Insurance</h3>
+      <ul>
+        <li>Shipping insurance is <strong>required for all items over $200</strong></li>
+        <li>For items under $200, insurance is strongly recommended but not mandatory</li>
+        <li>In the event of carrier damage on an insured item, After Aisle will assist with the claim process</li>
+        <li>Uninsured items damaged in transit are the seller's financial responsibility</li>
+      </ul>
+
+      <div class="callout warning">
+        <p><strong>Tracked shipping only.</strong> Orders shipped without tracking are not covered by After Aisle seller protection. Always ship with a method that provides end-to-end tracking.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 5: PAYMENT & ESCROW -->
+    <div class="section">
+      <p class="section-label">05 — Payment &amp; Escrow Policy</p>
+      <h2>How You Get Paid</h2>
+      <p>After Aisle uses a <strong>48-hour buyer inspection window</strong> to protect both parties. Here's exactly how it works:</p>
+
+      <div class="steps">
+        <div class="step">
+          <span class="step-num">01</span>
+          <div class="step-text">
+            <h4>Item sells</h4>
+            <p>Buyer's payment is collected and held in escrow by After Aisle.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">02</span>
+          <div class="step-text">
+            <h4>You ship within 5 business days</h4>
+            <p>Upload tracking to the platform within 24 hours of shipping.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">03</span>
+          <div class="step-text">
+            <h4>Buyer receives the item</h4>
+            <p>The 48-hour inspection window begins at the time of confirmed delivery.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">04</span>
+          <div class="step-text">
+            <h4>No dispute filed within 48 hours</h4>
+            <p>Funds are automatically released from escrow to your account. Sale is considered final.</p>
+          </div>
+        </div>
+        <div class="step">
+          <span class="step-num">05</span>
+          <div class="step-text">
+            <h4>Dispute filed within 48 hours</h4>
+            <p>After Aisle mediates. Buyer must provide photos of the item and packaging. Resolution within 3 business days.</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Commission</h3>
+      <p>After Aisle takes a <strong>20% commission</strong> on each completed sale. You keep <strong>80%</strong> of your listing price.</p>
+      <p><strong>Founding sellers</strong> (first 25) pay <strong>zero commission, forever</strong> — you keep 100% of every sale.</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 6: DISPUTES -->
+    <div class="section">
+      <p class="section-label">06 — Disputes &amp; Damage</p>
+      <h2>If Something Goes Wrong</h2>
+
+      <h3>Buyer Opens a Dispute</h3>
+      <p>If a buyer files a dispute within the 48-hour window, After Aisle will:</p>
+      <ul>
+        <li>Request photos from the buyer of the item and all packaging materials</li>
+        <li>Contact you for your account of how the item was packed and shipped</li>
+        <li>Review all evidence and issue a decision within <strong>3 business days</strong></li>
+      </ul>
+
+      <h3>Outcome Scenarios</h3>
+
+      <div class="policy-card">
+        <h3>Item not as described</h3>
+        <p>If the item significantly differs from the listing (wrong item, undisclosed damage, wrong condition tier), the buyer receives a full refund. This amount is deducted from your payout. The buyer returns the item at your expense.</p>
+        <h3>Damage due to poor packaging</h3>
+        <p>If photos indicate inadequate packaging caused the damage, the seller is responsible for a partial or full refund at After Aisle's discretion.</p>
+        <h3>Carrier damage (insured item)</h3>
+        <p>After Aisle will assist both parties in filing a carrier insurance claim. Funds remain in escrow during the claims process.</p>
+        <h3>Carrier damage (uninsured item)</h3>
+        <p>Seller bears financial responsibility. This is why insurance is required on items over $200.</p>
+        <h3>Dispute not resolved in seller's favor (repeat)</h3>
+        <p>Two unresolved disputes within 90 days will result in a review of your seller account. Three may result in removal from the platform.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>Our goal is always a fair resolution.</strong> After Aisle mediates every dispute personally — you will always speak to a real person, not a bot. Reach out to <a href="mailto:hello@afteraisle.com" style="color: var(--rose);">hello@afteraisle.com</a> at any time.</p>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 7: CHECKLIST -->
+    <div class="section">
+      <p class="section-label">07 — Pre-Ship Checklist</p>
+      <h2>Before Every Shipment</h2>
+      <p>Run through this list before sealing the box on every order.</p>
+
+      <ul class="checklist">
+        <li>Item matches the listing photos and condition description exactly</li>
+        <li>Item is clean and free of any debris, wax, or residue</li>
+        <li>Every piece is individually wrapped in bubble wrap</li>
+        <li>Box has at least 2 inches of padding on all sides</li>
+        <li>Fragile items are double-boxed</li>
+        <li>All seams are taped — not just the top flap</li>
+        <li>Shipping insurance purchased (required for items over $200)</li>
+        <li>Photo taken of packed item before sealing</li>
+        <li>Tracked shipping method selected</li>
+        <li>Tracking number uploaded to After Aisle within 24 hours of drop-off</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 After Aisle &nbsp;·&nbsp; afteraisle.com &nbsp;·&nbsp; Questions? <a href="mailto:hello@afteraisle.com" style="color: var(--rose);">hello@afteraisle.com</a></p>
+  </footer>
+
+</body>
+</html>
