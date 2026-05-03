@@ -64,7 +64,7 @@ Build supply before demand. Founding sellers are vetted, incentivized, and onboa
 
 ## Listing Standards (Objective Rejection Criteria)
 Items are rejected based on functional standards only — not aesthetic taste:
-- Listed below $30 minimum
+- Listed below $100 minimum
 - Permanent staining or visible damage
 - Structural damage (broken, cracked, missing parts)
 - Mold, mildew, or unremediable odor
