@@ -79,7 +79,7 @@ Items are rejected based on functional standards only — not aesthetic taste:
 
 ## Seller Onboarding & Shipping Standards
 Full guide lives at afteraisle.com/seller-guide. Key policies:
-- **Condition tiers:** Pristine / Excellent / Good
+- **Condition tiers:** Like New / Gently Used / Used — Good / Used — Fair
 - **Photo requirements:** Full item shot, detail shot, any wear/imperfection, professional wedding photo, timestamped photo
 - **48-hour buyer inspection window** — funds auto-release from escrow if no dispute filed
 - **Packaging standards** by item type (arch frames flagged as best for local pickup)
